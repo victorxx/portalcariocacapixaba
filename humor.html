@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Humor na Web - Vídeos e Notícias</title>
+
+<!-- Meta básico -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Assista vídeos engraçados e leia notícias de humor atualizadas. Diversão garantida com conteúdo humorístico de qualidade.">
+<meta name="keywords" content="vídeos engraçados, humor, piadas, comédia, notícias de humor, vídeos divertidos, entretenimento, memes, stand-up comedy">
+<meta name="author" content="Seu Nome ou Nome da Empresa">
+<meta name="robots" content="index, follow">
+<meta name="language" content="pt-BR">
+
+<!-- Open Graph (para Facebook, LinkedIn, etc) -->
+<meta property="og:title" content="Vídeos Engraçados e Notícias de Humor Atualizadas">
+<meta property="og:description" content="Assista vídeos engraçados e leia notícias de humor atualizadas para garantir sua diversão diária.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.seusite.com">
+<meta property="og:image" content="https://www.seusite.com/imagens/capa-humor.jpg">
+<meta property="og:site_name" content="Humor Brasil">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vídeos Engraçados e Notícias de Humor Atualizadas">
+<meta name="twitter:description" content="Assista vídeos engraçados e leia notícias de humor atualizadas. Diversão garantida.">
+<meta name="twitter:image" content="https://www.seusite.com/imagens/capa-twitter.jpg">
+<meta name="twitter:site" content="@seutwitter">
+<meta name="twitter:creator" content="@seutwitter">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Canonical URL para evitar conteúdo duplicado -->
+<link rel="canonical" href="https://www.seusite.com">
+
+<!-- Outras meta tags opcionais para SEO -->
+<meta name="rating" content="general">
+<meta name="distribution" content="global">
+<meta name="revisit-after" content="7 days">
+
+  <style>
+/* Estilização geral da página */
+body {
+  font-family: Arial, sans-serif; /* Define a fonte padrão */
+  background-color: #fff8e1;      /* Cor de fundo clara */
+  margin: 0;                      /* Remove margens externas */
+  padding: 0;                     /* Remove espaçamentos internos */
+  color: #333;                    /* Cor do texto principal */
+}
+
+/* Cabeçalho */
+header {
+  background-color: #ff9800;      /* Fundo laranja */
+  color: white;                   /* Texto branco */
+  padding: 20px;                  /* Espaçamento interno */
+  text-align: center;            /* Centraliza o texto */
+}
+
+/* Título principal */
+h1 {
+  margin: 0;                      /* Remove margem padrão */
+}
+
+/* Conteúdo principal */
+main {
+  padding: 20px;                  /* Espaçamento interno */
+  max-width: 1000px;              /* Largura máxima */
+  margin: auto;                   /* Centraliza horizontalmente */
+}
+
+/* Container de vídeo responsivo */
+.video-container {
+  position: relative;             /* Posicionamento relativo para filhos absolutos */
+  padding-bottom: 56.25%;        /* Proporção 16:9 */
+  height: 0;                      /* Altura inicial */
+  overflow: hidden;              /* Esconde conteúdo que ultrapassa */
+  margin-bottom: 20px;           /* Espaço abaixo do vídeo */
+}
+
+/* Iframe do vídeo */
+.video-container iframe {
+  position: absolute;            /* Posiciona sobre o container */
+  top: 0;
+  left: 0;
+  width: 100%;                   /* Largura total */
+  height: 100%;                  /* Altura total */
+  border: none;                  /* Sem borda */
+}
+
+/* Botões de troca de vídeo */
+.buttons {
+  display: flex;                 /* Layout flexível */
+  justify-content: center;      /* Centraliza os botões */
+  flex-wrap: wrap;              /* Quebra linha em telas pequenas */
+  gap: 10px;                     /* Espaço entre botões */
+  margin-bottom: 40px;          /* Espaço abaixo */
+}
+
+.buttons button {
+  background-color: #ff5722;     /* Cor de fundo laranja escuro */
+  color: white;                  /* Texto branco */
+  padding: 10px 20px;            /* Espaçamento interno */
+  border: none;                  /* Sem borda */
+  border-radius: 5px;            /* Cantos arredondados */
+  font-size: 16px;               /* Tamanho da fonte */
+  cursor: pointer;              /* Cursor de botão */
+  transition: background 0.3s;   /* Transição suave de cor */
+}
+
+.buttons button:hover {
+  background-color: #e64a19;     /* Cor mais escura ao passar o mouse */
+}
+
+/* Seção de notícias */
+.news-section {
+  background-color: #fff3e0;     /* Fundo bege claro */
+  padding: 20px;                 /* Espaçamento interno */
+  border-radius: 8px;            /* Bordas arredondadas */
+  box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+/* Título da seção de notícias */
+.news-section h2 {
+  color: #ff6f00;                /* Cor laranja viva */
+  margin-bottom: 20px;          /* Espaço inferior */
+}
+
+/* Cada notícia (artigo) */
+article {
+  margin-bottom: 20px;          /* Espaço inferior entre artigos */
+  padding-bottom: 10px;         /* Espaço interno inferior */
+  border-bottom: 1px solid #ddd; /* Linha de separação */
+}
+
+/* Título da notícia */
+article h3 {
+  margin: 0 0 5px 0;             /* Margens superior e inferior */
+  color: #ef6c00;                /* Cor laranja escura */
+}
+
+/* Rodapé */
+footer {
+  text-align: center;            /* Centraliza texto */
+  padding: 15px;                 /* Espaçamento interno */
+  background-color: #ffe0b2;     /* Fundo bege suave */
+  color: #333;                   /* Cor do texto */
+  margin-top: 30px;              /* Espaço acima do rodapé */
+}
+
+/* Container fixo para iframe adicional no canto inferior direito */
+#iframe-wrapper {
+  position: fixed;               /* Fixa na tela */
+  bottom: 0;                     /* Alinha ao rodapé */
+  right: 0;                      /* Alinha à direita */
+  width: 100%;                   /* Largura total (limitada por max-width) */
+  max-width: 400px;              /* Largura máxima */
+  height: 50vh;                  /* Altura proporcional à tela */
+  max-height: 400px;             /* Altura máxima */
+  z-index: 9999;                 /* Fica acima de tudo */
+  border-radius: 10px 0 0 0;     /* Arredondamento só no canto superior esquerdo */
+  box-shadow: -2px -2px 12px rgba(0,0,0,0.3); /* Sombra para destacar */
+  background-color: #fff;        /* Fundo branco */
+  overflow: hidden;              /* Esconde transbordamentos */
+  display: flex;                 /* Flex para centralizar conteúdo */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Iframe embutido */
+#iframe-fixo {
+  width: 100%;                   /* Largura total */
+  height: 100%;                  /* Altura total */
+  border: none;                  /* Sem borda */
+  border-radius: 10px 0 0 0;     /* Arredondamento no canto superior esquerdo */
+  display: block;                /* Exibe como bloco */
+}
+
+/* Botão para fechar o iframe fixo */
+#close-btn {
+  position: absolute;            /* Posicionado dentro do iframe-wrapper */
+  top: 8px;                      /* Distância do topo */
+  right: 12px;                   /* Distância da direita */
+  background: rgba(0, 0, 0, 0.7);/* Fundo escuro transparente */
+  color: #fff;                   /* Cor do ícone */
+  border: none;                  /* Sem borda */
+  border-radius: 50%;            /* Formato circular */
+  font-size: 20px;               /* Tamanho da fonte */
+  width: 32px;                   /* Tamanho do botão */
+  height: 32px;
+  cursor: pointer;              /* Cursor de clique */
+  line-height: 32px;             /* Centraliza o ícone verticalmente */
+  text-align: center;            /* Centraliza horizontalmente */
+  z-index: 10000;                /* Acima de tudo */
+  display: none;                 /* Escondido inicialmente */
+  transition: background-color 0.3s ease; /* Transição de cor */
+}
+
+#close-btn:hover {
+  background: rgba(255, 0, 0, 0.8); /* Vermelho ao passar o mouse */
+}
+
+/* Estilo responsivo para dispositivos móveis */
+@media (max-width: 600px) {
+  #iframe-wrapper {
+    max-width: 100%;             /* Ocupa toda a largura */
+    height: 400px;               /* Altura menor */
+    border-radius: 0;            /* Remove cantos arredondados */
+    left: 0;                     /* Alinha à esquerda */
+    right: 0;                    /* Alinha à direita */
+    bottom: 0;                   /* Alinha embaixo */
+  }
+
+  #iframe-fixo {
+    border-radius: 0;            /* Remove arredondamento */
+  }
+
+  #close-btn {
+    top: 6px;                    /* Ajusta posição do botão */
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Humor na Web - Vídeos e Notícias Engraçadas</h1>
+  </header>
+
+  <main>
+										<div id="dataAtual" style="text-align: right; font-size: 14px; color: #555; margin: 10px 0;">
+										  Atualizado em: carregando...
+										</div>
+										<!-----atualizadodiv-------------->
+
+										<script>
+										  function atualizarDataHora() {
+											const agora = new Date();
+											const opcoes = {
+											  day: '2-digit',
+											  month: 'long',
+											  year: 'numeric',
+											  hour: '2-digit',
+											  minute: '2-digit'
+											};
+
+											const dataHoraFormatada = agora.toLocaleDateString('pt-BR', opcoes).replace(' às', ',');
+											document.getElementById('dataAtual').textContent = 'Atualizado em: ' + dataHoraFormatada;
+										  }
+
+										  atualizarDataHora();
+										</script>
+										<!-----atualizadodiv-------------->
+
+										<div class="video-container" id="videoArea">
+										  <iframe src="https://www.youtube.com/embed/1zvhsjyL6P8" allowfullscreen></iframe>
+										</div>
+                    <!---------------------------------------------------camodevideos-->
+										<div class="buttons">
+										  <button onclick="trocarVideo('RRtXOn3ouQA')">1 HORA TENTE NÃO RIR ?? OS VÍDEOS ENGRAÇADOS de MEMES 2025 [ESPECIAL VALE A PENA RIR DE NOVO]</button>
+
+										</div>
+                    <!--------------------secaodenoticiaas-->
+										<section class="news-section">
+										  <h2>??? Últimas Notícias de Humor</h2>
+
+										  <article>
+											<h3>Influenciador tenta virar comediante e cai do palco</h3>
+											<p>Em show no interior, influencer tentou fazer stand-up, tropeçou no fio do microfone e virou meme.</p>
+										  </article>
+
+										  <article>
+											<h3>Prefeitura proíbe piadas ruins em praça pública</h3>
+											<p>Após reclamações de moradores, comediantes terão que testar piadas antes com uma comissão de humor.</p>
+										  </article>
+
+										  <article>
+											<h3>Gato viraliza ao “rir” das piadas do dono</h3>
+											<p>Vídeo do pet reagindo com expressão parecida com riso ultrapassa 2 milhões de visualizações.</p>
+										  </article>
+                       <!--------------------secaodenoticiaas-->
+
+										</section>
+
+									  </main>
+
+									  <footer>
+										&copy; 2025 Humor na Web. Todos os direitos reservados.
+									  </footer>
+
+									  <script>
+										function trocarVideo(videoId) {
+										  const videoArea = document.getElementById('videoArea');
+										  videoArea.innerHTML = `
+											<iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+										  `;
+										}
+									  </script>
+
+
+										<div id="iframe-wrapper" role="region" aria-label="Anúncio fixo">
+										  <button id="close-btn" aria-label="Fechar anúncio">×</button>
+										  <iframe
+											id="iframe-fixo"
+											src="https://remarkable-gelato-4db597.netlify.app/modeloanuncio.html"
+											title="Anúncio Fixo Responsivo"
+											loading="lazy"
+											></iframe>
+										</div>
+
+										<script>
+										  // Espera 10 segundos para exibir o botão de fechar
+										  setTimeout(() => {
+											document.getElementById("close-btn").style.display = "block";
+										  }, 10000);
+
+										  // Ação do botão para fechar o iframe
+										  document.getElementById("close-btn").addEventListener("click", () => {
+											document.getElementById("iframe-wrapper").style.display = "none";
+										  });
+										</script>
+
+
+										</body>
+										</html>
